@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '非機時刻表',
+      title: '飛機時刻表',
       theme: ThemeData(primarySwatch: Colors.blue),
       home: const FlightView(),
     );
