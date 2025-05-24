@@ -23,6 +23,7 @@ class FlightViewModel extends ChangeNotifier{
     try{
 
       flights= await repository.fechFlights();
+      airlineFilter=null;
 
       applyFilters();
     }catch(e){
@@ -40,7 +41,7 @@ class FlightViewModel extends ChangeNotifier{
 
     // 根據 airline 名稱模糊搜尋篩選
     filteredFlights=flights.where((_flight){
-      return (airlineFilter== '全部')||_flight.airLineName.toLowerCase().contains(airlineKey);
+      return (airlineFilter == '全部')||_flight.airLineName.toLowerCase().contains(airlineKey);
     }).toList();
 
     notifyListeners();
