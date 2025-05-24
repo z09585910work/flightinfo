@@ -16,6 +16,7 @@ class FlightRepository{
       final jsonMap=jsonDecode(response.body);
       final List<dynamic> data =jsonMap['InstantSchedule'];
       return data.map((item) => FlightInfo.fromJson(item)).toList();
+
     }else{
       throw Exception("伺服器異常: ${response.statusCode}");
     }
