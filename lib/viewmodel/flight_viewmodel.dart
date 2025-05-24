@@ -38,23 +38,35 @@ class FlightViewModel extends ChangeNotifier{
   void applyFilters() {
 
     final airlineKey=airlineFilter?.toLowerCase() ?? '';
+    final airflystatusKey=airflystatusFilter?.toLowerCase() ?? '';
 
     // 根據 airline 名稱模糊搜尋篩選
-    filteredFlights=flights.where((_flight){
-      return (airlineFilter == '全部')||_flight.airLineName.toLowerCase().contains(airlineKey);
+    // filteredFlights=flights.where((_flight){
+    //   return (airlineFilter == '全部')||_flight.airLineName.toLowerCase().contains(airlineKey);
+    // }).toList();
+
+    filteredFlights = flights.where((flight) {
+      final matchAirline = airlineFilter == '全部' ||
+          flight.airLineName.toLowerCase().contains(airlineKey);
+      final matchStatus = airflystatusFilter == '全部' ||
+          flight.airFlyStatus.toLowerCase().contains(airflystatusKey);
+      return matchAirline && matchStatus;
     }).toList();
 
     notifyListeners();
-
-    for(var f2 in filteredFlights){
-      print("filteredFlights:${f2.airLineName}");
-    }
   }
 
   void setFilters({String? airline,String? airflystatus}){
     airlineFilter=airline;
     airflystatusFilter=airflystatus;
     applyFilters();
+  }
+
+  void setairlineFilters(String airline_){
+
+    airlineFilter=airline_;
+    applyFilters();
+
   }
 
   void clearFilters(){

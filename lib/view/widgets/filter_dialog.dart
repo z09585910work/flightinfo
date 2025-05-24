@@ -46,10 +46,10 @@ class _FilterDialog extends State<FilterDialog> {
 
           const SizedBox(height: 10,),
 
-          // TextField(
-          //   controller: airflystatusController,
-          //   decoration: const InputDecoration(labelText: '航行狀態'),
-          // )
+          TextField(
+            controller: airflystatusController,
+            decoration: const InputDecoration(labelText: '航行狀態'),
+          )
         ],
       ),
 
@@ -57,7 +57,7 @@ class _FilterDialog extends State<FilterDialog> {
         TextButton(onPressed: (){
           vm.setFilters(
             airline: airlineController.text.isEmpty ? null : airlineController.text,
-            //airflystatus: airflystatusController.text.isEmpty ? null : airflystatusController.text
+            airflystatus: airflystatusController.text.isEmpty ? null : airflystatusController.text
           );
           Navigator.of(context).pop();
         },child: Text('套用')),
