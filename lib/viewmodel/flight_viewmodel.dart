@@ -22,7 +22,7 @@ class FlightViewModel extends ChangeNotifier{
 
     try{
 
-      flights= await repository.fechFlights();
+      flights= await repository.fetchFlights();
       airlineFilter=null;
 
       applyFilters();
