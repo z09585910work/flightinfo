@@ -19,7 +19,8 @@ class _FilterDialog extends State<FilterDialog> {
     super.initState();
 
     final vm = Provider.of<FlightViewModel>(context, listen: false);
-    airlineController = TextEditingController(text: vm.airlineFilter ?? '全部');
+    // airlineController = TextEditingController(text: vm.airlineFilter ?? '全部');
+    airlineController = TextEditingController(text: vm.airlineFilter );
     airflystatusController = TextEditingController(text: vm.airflystatusFilter ?? '全部',);
   }
 
@@ -41,7 +42,10 @@ class _FilterDialog extends State<FilterDialog> {
         children: [
           TextField(
             controller: airlineController,
-            decoration: const InputDecoration(labelText: '航空公司'),
+            decoration: const InputDecoration(labelText: '航空公司',
+              hintText: '全部'
+
+            ),
           ),
 
           const SizedBox(height: 10,),

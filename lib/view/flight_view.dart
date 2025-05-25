@@ -36,7 +36,12 @@ class  _FlightView extends State<FlightView>{
       ],),
       body: Column(children: [
         const SizedBox(height: 10,),
-        AirlineFilterSegmented(),
+
+        Align(
+          alignment: Alignment.centerLeft,
+          child:  AirlineFilterSegmented(),
+        ),
+
         const Divider(),
         Expanded(child: Builder(builder: (context) {
           if (vm.isLoading) {

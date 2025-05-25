@@ -8,15 +8,24 @@ class AirlineFilterSegmented extends StatelessWidget {
   Widget build(BuildContext context) {
     final vm = context.watch<FlightViewModel>();
     return SegmentedButton<String>(
+
+      showSelectedIcon: false,
       segments: airlineOptions
-          .map((label) => ButtonSegment(value: label, label: Text(label)))
-          .toList(),
+          .map((label) => ButtonSegment(
+          value: label,
+          label: Text(label),
+      ),).toList(),
       selected: {vm.airlineFilter ?? '全部'},//強制給String一個初始值
       onSelectionChanged: (Set<String> selected) {
         if (selected.isNotEmpty) {
           context.read<FlightViewModel>().setairlineFilters(selected.first);
         }
       },
+      style: ButtonStyle(
+        visualDensity: VisualDensity.compact,//壓縮高度
+        padding: WidgetStatePropertyAll(EdgeInsets.symmetric(horizontal: 4)),
+
+      ),
     );
   }
 }
