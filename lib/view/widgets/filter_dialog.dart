@@ -43,7 +43,8 @@ class _FilterDialog extends State<FilterDialog> {
           TextField(
             controller: airlineController,
             decoration: const InputDecoration(labelText: '航空公司',
-              hintText: '全部'
+              hintText: '全部',
+                hintStyle: TextStyle(color: Colors.grey)
 
             ),
           ),
@@ -53,7 +54,8 @@ class _FilterDialog extends State<FilterDialog> {
           TextField(
             controller: airflystatusController,
             decoration: const InputDecoration(labelText: '航行狀態',
-              hintText: '全部'
+              hintText: '全部',
+              hintStyle: TextStyle(color: Colors.grey)
             ),
           )
         ],
