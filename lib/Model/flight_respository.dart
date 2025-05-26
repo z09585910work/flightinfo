@@ -15,10 +15,10 @@ class FlightRepository{
       final response= await _dio.get(api);
 
       if(response.statusCode == 200){
-        // Dio 回傳的是 Response<dynamic>，所以 response.data 是 dynamic
+
         final jsonMap=response.data is String
-            ? jsonDecode(response.data)  //若是字串，手動解碼
-            :response.data;  //若已是 Map，直接用
+            ? jsonDecode(response.data)
+            :response.data;
 
         final List<dynamic> data=jsonMap['InstantSchedule'];
         return data.map((item) => FlightInfo.fromJson(item)).toList();
